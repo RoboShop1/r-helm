@@ -3,7 +3,7 @@ app:
   containerName: nginx
   containerPort : 80
   env:
-    MONGO: "true"
+    MONGO: true
     MONGO_URL: mongodb://database.azcart.online:27017/catalogue
 
 service:
