@@ -1,0 +1,15 @@
+app:
+  replicas: 1
+  containerName: user
+  containerPort : 8080
+  env:
+    MONGO: true
+    REDIS_URL: "redis://database.azcart.online:6379"
+    MONGO_URL: "mongodb://database.azcart.online:27017/users"
+
+service:
+  type: ""
+  port: 8080
+  targetPort: 8080
+
+

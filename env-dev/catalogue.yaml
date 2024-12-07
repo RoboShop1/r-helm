@@ -1,7 +1,7 @@
 app:
   replicas: 1
-  containerName: nginx
-  containerPort : 80
+  containerName: catalogue
+  containerPort : 8080
   env:
     MONGO: true
     MONGO_URL: mongodb://database.azcart.online:27017/catalogue
