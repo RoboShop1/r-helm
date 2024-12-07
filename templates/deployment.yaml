@@ -19,7 +19,7 @@ spec:
           ports:
            - containerPort: {{ .Values.app.containerPort }}
           env:
-          {{- range $k,$v :- .Values.app.env }}
+          {{- range $k,$v := .Values.app.env }}
            - name: {{ $k }}
              value: {{ $v }}
           {{- end }}
