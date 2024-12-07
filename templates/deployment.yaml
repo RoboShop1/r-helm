@@ -13,6 +13,7 @@ spec:
       labels:
         app: {{ .Release.Name }}
     spec:
+      imagePullPolicy: Always
       containers:
         - name: {{ .Values.app.containerName }}
           image: docker.io/chaitu1812/r-{{ .Release.Name }}
