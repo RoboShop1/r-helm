@@ -2,6 +2,10 @@ app:
   replicas: 1
   containerName: nginx
   containerPort : 80
-  env:
-    - name: one
-      value: two
+  env: {}
+
+service:
+  type: "NodePort"
+  port: 80
+  targetPort: 80
+
