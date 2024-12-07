@@ -17,7 +17,7 @@ spec:
         - name: {{ .Values.app.containerName }}
           image: docker.io/chaitu1812/r-{{ .Release.Name }}
           ports:
-            containerPort: {{ .Values.app.containerPort }}
+           - containerPort: {{ .Values.app.containerPort }}
           {{- if .Values.app.env }}
           env: {{- toYaml .Values.app.env | nindent 14 }}
            {{- end }}
