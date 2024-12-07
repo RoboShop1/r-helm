@@ -1,5 +1,7 @@
 app:
   replicas: 1
   containerName: nginx
-  port: 80
-  env: null
+  containerPort : 80
+  env:
+    - name: one
+      value: two
