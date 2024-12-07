@@ -1,0 +1,12 @@
+app:
+  replicas: 1
+  containerName: shipping
+  containerPort : 8080
+  env:
+    CART_ENDPOINT: "cart:8080"
+    DB_HOST: "database.azcart.online"
+
+service:
+  type: ""
+  port: 8080
+  targetPort: 8080
