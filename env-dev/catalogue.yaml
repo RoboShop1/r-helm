@@ -5,3 +5,8 @@ app:
   env:
     MONGO: "true"
     MONGO_URL: "mongodb://database.azcart.online:27017/catalogue"
+
+service:
+  type: ""
+  port: 8080
+  targetPort: 8080
