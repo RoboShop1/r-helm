@@ -10,6 +10,7 @@ metadata:
 spec:
   template:
     spec:
+      imagePullPolicy: Always
       containers:
         - name: {{ .Release.Name }}
           image: chaitu1812/r-loadschema
