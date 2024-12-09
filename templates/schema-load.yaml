@@ -3,13 +3,16 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: {{ .Release.Name }}-load-schema
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-delete-policy": hook-succeeded
 spec:
   template:
     spec:
       containers:
-        - name: pi
+        - name: {{ .Release.Name }}
           image: chaitu1812/r-loadschema
-          env: {{- toYaml .Values.app.schema.env | nindent 14 }}
+          env: {{- toYaml .Values.app.schema.env | nindent 12 }}
       restartPolicy: Never
   backoffLimit: 2
    {{- end }}
