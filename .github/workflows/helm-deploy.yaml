@@ -1,0 +1,35 @@
+name: Roboshop helm deploy
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        type: string
+        required: true
+      service:
+        type: string
+        required: true
+      env:
+        type: string
+        required: true
+
+
+jobs:
+  helm-deploy:
+    runs-on: ["self-hosted"]
+    steps:
+      - name: install ${{ inputs.service }}
+        if: inputs.action == 'install'
+        run: |
+          echo "helm ${{inputs.action}} ${{ inputs.service }} . -f env-${{ inputs.env }}/${{ inputs.service }}.yaml -n ${{ inputs.env }} --create-namespace"
+
+      - name: upgrade ${{ inputs.service }}
+        if: inputs.action == 'upgrade'
+        run: |
+          echo "helm ${{inputs.action}} -i ${{ inputs.service }} . -f env-dev/${{ inputs.service }}.yaml"
+      
+
+      - name: uninstall ${{ inputs.service }}
+        if: inputs.action == 'uninstall'
+        run: |
+          echo "helm del ${{ inputs.service }} -n ${{ inputs.env }}"    
+      
