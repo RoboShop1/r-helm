@@ -16,6 +16,9 @@ spec:
       imagePullPolicy: Always
       containers:
         - name: {{ .Values.app.containerName }}
+         {{- if eq .Release.Name "shipping" }}
+          image: chaitu1812/shipping-rhel9
+        {{- end }}
           image: docker.io/chaitu1812/r-{{ .Release.Name }}
           ports:
            - containerPort: {{ .Values.app.containerPort }}
