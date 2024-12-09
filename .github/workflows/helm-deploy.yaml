@@ -20,7 +20,8 @@ jobs:
       - name: install ${{ inputs.service }}
         if: inputs.action == 'install'
         run: |
-          helm ${{inputs.action}} ${{ inputs.service }} . -f env-${{ inputs.env }}/${{ inputs.service }}.yaml -n ${{ inputs.env }} --create-namespace
+          aws eks update-kubeconfig --name dev-eks
+          helm ${{inputs.action}}  ${{ inputs.service }} . -f env-${{ inputs.env }}/${{ inputs.service }}.yaml -n ${{ inputs.env }} --create-namespace
 
       - name: upgrade ${{ inputs.service }}
         if: inputs.action == 'upgrade'
