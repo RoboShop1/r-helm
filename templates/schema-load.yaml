@@ -1,0 +1,15 @@
+  {{- if .Values.app.schema.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Release.Name }}-load-schema
+spec:
+  template:
+    spec:
+      containers:
+        - name: pi
+          image: chaitu1812/r-loadschema
+          env: {{- toYaml .Values.app.schema.env | nindent 14 }}
+      restartPolicy: Never
+  backoffLimit: 2
+   {{- end }}

@@ -1,2 +1,6 @@
+app:
+  schema:
+    enabled: false
+
 service:
   type: ClusterIp

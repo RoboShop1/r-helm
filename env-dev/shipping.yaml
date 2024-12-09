@@ -5,6 +5,17 @@ app:
   env:
     CART_ENDPOINT: "cart:8080"
     DB_HOST: "database.azcart.online"
+  schema:
+    enabled: true
+    env:
+      - name: db_type
+        value: mysql
+      - name: mysql_host
+        value: database.azcart.online
+      - name: mysql_username
+        value: root
+      - name: mysql_password
+        value: RoboShop@1
 
 service:
   type: ""

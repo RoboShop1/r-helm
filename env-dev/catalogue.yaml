@@ -5,6 +5,13 @@ app:
   env:
     MONGO: true
     MONGO_URL: mongodb://database.azcart.online:27017/catalogue
+  schema:
+    enabled: true
+    env:
+      - name: db_type
+        value: mongo
+      - name: mongo_host
+        value: database.azcart.online
 
 service:
   type: ""
