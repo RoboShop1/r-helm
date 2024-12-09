@@ -1,5 +1,5 @@
 app:
-  replicas: 1
+  replicas: 2
   containerName: nginx
   containerPort : 80
   env:
