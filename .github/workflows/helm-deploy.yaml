@@ -26,7 +26,7 @@ jobs:
       - name: upgrade ${{ inputs.service }}
         if: inputs.action == 'upgrade'
         run: |
-          helm ${{inputs.action}} -i ${{ inputs.service }} . -f env-dev/${{ inputs.service }}.yaml
+          helm ${{inputs.action}} -i ${{ inputs.service }} . -f env-dev/${{ inputs.service }}.yaml -n ${{ inputs.env }} --create-namespace
       
 
       - name: uninstall ${{ inputs.service }}
