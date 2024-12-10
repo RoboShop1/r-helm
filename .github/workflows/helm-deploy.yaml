@@ -17,6 +17,9 @@ jobs:
   helm-deploy:
     runs-on: ["self-hosted"]
     steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+
       - name: install ${{ inputs.service }}
         if: inputs.action == 'install'
         run: |
