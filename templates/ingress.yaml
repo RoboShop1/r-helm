@@ -1,0 +1,26 @@
+{{- if app.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-ingress
+  namespace: {{ .Release.namespace }}
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: sample
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-00ca49b1e0f7847c2, subnet-0b717221a6632cfd7
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+
+spec:
+  rules:
+    - host: "sample.azcart.online"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80
+{{- end }}

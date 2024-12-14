@@ -1,6 +1,7 @@
 app:
   schema:
     enabled: false
+  ingress: false
 
 service:
   type: ClusterIp
